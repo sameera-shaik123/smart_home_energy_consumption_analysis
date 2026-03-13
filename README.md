@@ -316,7 +316,7 @@ The system can be extended further with:
 
 The home page allows users to explore the smart energy monitoring system and navigate to different modules.
 
-![Home Page](images/homepage.png)
+![Home Page](https://github.com/sameera-shaik123/smart_home_energy_consumption_analysis/blob/main/snapshots/Homepage.png)
 
 ---
 
@@ -324,7 +324,7 @@ The home page allows users to explore the smart energy monitoring system and nav
 
 This page predicts future energy consumption using the trained machine learning model.
 
-![Forecast Page](images/forecast_page.png)
+![Forecast Page](https://github.com/sameera-shaik123/smart_home_energy_consumption_analysis/blob/main/snapshots/forecastpage.png)
 
 ---
 
@@ -332,9 +332,27 @@ This page predicts future energy consumption using the trained machine learning 
 
 The visualization dashboard provides insights into energy usage patterns such as hourly, daily, weekly, and monthly trends.
 
-![Visualization Page](images/visualization_page.png)
+![Visualization Page 1](https://github.com/sameera-shaik123/smart_home_energy_consumption_analysis/blob/main/snapshots/visualization1.png)
+
+![Visualization Page 1](https://github.com/sameera-shaik123/smart_home_energy_consumption_analysis/blob/main/snapshots/visualization2.png)
 
 
+## Forecast Reports
+
+The system also generates **energy consumption forecast reports** in PDF format.
+
+These reports contain:
+
+- Predicted energy consumption
+- Forecasted energy trends
+- Model prediction summaries
+- Visualization charts
+
+### Available Reports
+
+📄 [Energy Forecast Report 1](https://github.com/sameera-shaik123/smart_home_energy_consumption_analysis/blob/main/Reports/energy_forecast_report_NextHr.pdf)
+
+📄 [Energy Forecast Report 2](https://github.com/sameera-shaik123/smart_home_energy_consumption_analysis/blob/main/Reports/energy_forecast_report_Week.pdf)
 
 
 
