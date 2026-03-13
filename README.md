@@ -18,6 +18,15 @@ The system:
 - Generates smart suggestions to reduce energy wastage
 - Deploys a web application for real-time monitoring
 
+
+## Project Demo Video
+
+Watch the project demonstration here:
+
+🎥 [Open Demo Video](https://github.com/sameera-shaik123/smart_home_energy_consumption_analysis/tree/main/DemoVideo)
+
+
+
 ---
 
 # Project Outcomes
