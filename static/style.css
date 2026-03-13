@@ -1,0 +1,426 @@
+/* Visualization page modern gradient background */
+body.visualize-body {
+    background: linear-gradient(135deg, #43cea2 0%, #185a9d 100%);
+    min-height: 100vh;
+}
+
+.visualize-container {
+    background: rgba(255,255,255,0.10);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(38,50,56,0.18);
+    padding: 32px 24px;
+    max-width: 1200px;
+    margin: 32px auto;
+}
+
+.chart {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgba(38,50,56,0.10);
+    padding: 24px 18px;
+    margin-bottom: 24px;
+    width: 100%;
+    max-width: 950px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tip-box {
+    background: linear-gradient(90deg, #fff8e1 0%, #fff1f0 100%);
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(38, 50, 56, 0.08);
+    border: 1px solid rgba(2,6,23,0.12);
+    padding: 16px;
+    margin-bottom: 12px;
+}
+
+.kpi-card-gradient {
+    background: linear-gradient(90deg,#0ea5e9 0%,#22c55e 50%,#facc15 80%,#ef4444 100%);
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgba(38,50,56,0.10);
+    padding: 18px 16px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    min-width: 220px;
+    max-width: 280px;
+}
+
+.visualization-grid {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.chart-column {
+    flex: 2;
+}
+
+.info-column {
+    flex: 1;
+    min-width: 320px;
+    max-width: 400px;
+}
+
+.info-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(38,50,56,0.09);
+    padding: 20px 16px;
+    margin-bottom: 18px;
+}
+
+.heatmap-row {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+#heatmap-explain.info-card {
+    min-width: 260px;
+    max-width: 340px;
+    display: block;
+}
+
+@media (max-width: 900px) {
+    .visualization-grid {
+        flex-direction: column;
+        gap: 18px;
+    }
+    .info-column {
+        min-width: 100%;
+        max-width: 100%;
+    }
+    .chart {
+        max-width: 100%;
+    }
+    .visualize-container {
+        padding: 18px 6px;
+    }
+    .heatmap-row {
+        flex-direction: column;
+        gap: 12px;
+    }
+    #heatmap-explain.info-card {
+        min-width: 100%;
+        max-width: 100%;
+    }
+}
+body {
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+}
+
+.home-body {
+    background: linear-gradient(135deg, #ff512f, #dd2476);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.home-container {
+    text-align: center;
+}
+
+.primary-btn {
+    padding: 15px 30px;
+    font-size: 18px;
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.forecast-body {
+    /* Colorful gradient background for forecast page */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f6d365 100%);
+    color: white;          /* light text for readability on dark gradient */
+    min-height: 100vh;
+}
+
+/* Card-style container for forecast result and any charts on forecast page */
+.forecast-container, #result-box {
+    background: rgba(255,255,255,0.06);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    padding: 20px;
+}
+
+#result-box h3 { color: white; }
+
+.forecast-container {
+    max-width: 900px;
+    margin: auto;
+    padding: 30px;
+}
+
+.forecast-container h2 {
+    font-weight: 700;
+    color: white;
+}
+
+.forecast-container h3 {
+    font-weight: 700;
+    color: white;
+}
+
+label {
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 8px;
+    color: white;
+}
+
+.form-box input, .form-box select {
+    width: 100%;
+    height: 52px;
+    margin: 10px 0;
+    padding: 12px;
+    font-weight: 600;
+    font-size: 17px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: 0.3s ease;
+    background: white;
+    color: #1f2937;
+}
+
+.form-box input:focus, .form-box select:focus {
+    border-color: #4e73df;
+    box-shadow: 0 0 10px rgba(78, 115, 223, 0.4);
+    outline: none;
+}
+
+.form-box input::placeholder {
+    font-weight: 500;
+    color: #9ca3af;
+}
+
+.form-box button[onclick="predictEnergy()"] {
+    background: linear-gradient(135deg, #4e73df, #1cc88a);
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    height: 50px;
+    font-size: 16px;
+    border-radius: 10px;
+    transition: 0.3s ease;
+    margin-top: 15px;
+}
+
+.form-box button[onclick="predictEnergy()"]:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 16px rgba(78, 115, 223, 0.3);
+}
+
+.back-home-btn {
+    background: linear-gradient(135deg, #36b9cc, #858796) !important;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    height: 50px;
+    font-size: 16px;
+    border-radius: 10px;
+    transition: 0.3s ease;
+    width: 100%;
+}
+
+.back-home-btn:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 16px rgba(54, 185, 204, 0.3);
+}
+
+#visualize-btn {
+    background: linear-gradient(135deg, #f6c23e, #e74a3b);
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    height: 50px;
+    font-size: 16px;
+    border-radius: 10px;
+    transition: 0.3s ease;
+    width: 100%;
+}
+
+#visualize-btn:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 16px rgba(247, 108, 62, 0.3);
+}
+
+button {
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#prediction-list {
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.tip-box {
+    /* Attractive Smart Tip box used on visualize page */
+    background: linear-gradient(90deg, #fff8e1 0%, #fff1f0 100%);
+    padding: 18px 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(38, 50, 56, 0.08);
+    border: 1px solid rgba(0,0,0,0.04);
+    margin-top: 12px;
+    color: #0f172a;
+}
+
+.charts div {
+    margin-top: 30px;
+}
+
+.hidden {
+    display: none;
+} 
+.spinner {
+    width: 45px;
+    height: 45px;
+    border: 5px solid #e5e7eb;
+    border-top: 5px solid #6366f1;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: auto;
+}
+
+/* PDF button (small colored) */
+#download-pdf, .pdf-btn {
+    background: linear-gradient(90deg,#ff7a7a,#ffb47a);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* Back to Forecast button */
+.back-btn {
+    background: #6b7280;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Ensure charts full width on visualize page */
+#charts-wrapper { width: 100%; }
+/* Chart sizes */
+#lineChart, #barChart, #pieChart { width: 100%; height: 420px; }
+
+/* Visualization grid: charts + info card */
+.visualization-grid {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    width: 100%;
+    box-sizing: border-box;
+}
+.chart-column {
+    flex: 1 1 0;
+}
+.info-column {
+    width: 320px;
+    flex: 0 0 320px;
+}
+.info-card {
+    background: #f8f9fc;
+    padding: 16px;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+    border: 1px solid #e6eef8;
+    color: #0f172a;
+}
+.info-card h3 { margin: 0 0 8px 0; font-size: 18px; }
+.info-card p { margin: 0; color: #475569; }
+.legend-list { margin: 8px 0 0 0; padding-left: 18px; color: #334155; }
+.legend-list li { margin-bottom: 6px; font-size: 14px; }
+
+/* Reduce large vertical gap before report section */
+.report-section { margin-top: 20px; }
+
+/* Improve Plotly axis and title readability */
+.js-plotly-plot .gtitle, .js-plotly-plot .gtitle text { font-size: 16px !important; font-weight: 700 !important; }
+.js-plotly-plot .ytitle, .js-plotly-plot .ytitle text { font-size: 14px !important; font-weight: 600 !important; }
+.js-plotly-plot .xtick text, .js-plotly-plot .ytick text { font-size: 13px !important; fill: #475569 !important; }
+.js-plotly-plot .gridlines path, .js-plotly-plot .gridlines line { stroke: #e6eef8 !important; }
+
+/* Responsive: stack info card under charts on small screens */
+@media (max-width: 880px) {
+    .visualization-grid { flex-direction: column; }
+    .info-column { width: 100%; flex: none; }
+}
+
+/* KPI card for single-value predictions */
+.kpi-container { display: flex; justify-content: center; margin-top: 14px; }
+.kpi-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 18px 22px;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+    border: 1px solid #eef2f7;
+    text-align: center;
+    min-width: 260px;
+    max-width: 480px;
+}
+.kpi-value { font-size: 30px; font-weight: 700; color: #0f172a; }
+.kpi-unit { font-size: 14px; color: #475569; margin-top: 4px; }
+.kpi-label { font-size: 13px; color: #6b7280; margin-top: 8px; }
+
+/* Hide info card by default; JS will toggle visibility */
+#info-card { display: none; }
+
+/* Reduce bottom spacing for charts wrapper to avoid large gaps */
+#charts-wrapper { margin-bottom: 0; }
+
+/* Right-side KPI card (top) */
+.kpi-right {
+    background: linear-gradient(135deg, #4e73df, #7b61ff);
+    color: white;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.12);
+    text-align: center;
+    margin-bottom: 12px;
+}
+.kpi-right .value { font-size: 34px; font-weight: 800; }
+.kpi-right .unit { font-size: 14px; opacity: 0.9; }
+.kpi-right .label { font-size: 13px; opacity: 0.85; margin-top:6px }
+
+/* Heatmap styling */
+#heatmapChart { height: 200px; margin-top: 8px; }
+
+/* Full width mode (week/month) */
+.full-width .info-column { display: none !important; }
+.full-width .chart-column { flex: 1 1 100% !important; }
+.full-width #lineChart { height: 560px !important; }
+.full-width #heatmapChart { display: none; }
+
+/* override inline template rule: force charts full-width in full-width mode */
+.visualization-grid.full-width .chart { width:100% !important; max-width:none !important; }
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

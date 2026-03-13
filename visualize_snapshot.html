@@ -1,0 +1,152 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Visualize Forecast</title>
+    <link rel="stylesheet" href="/static/style.css"> -->
+    <!-- Resilient Plotly loader: try local vendor, then CDN fallbacks -->
+    <!-- <script>
+        // Global callback for when Plotly is ready
+        window.plotlyLoaded = false;
+        window.onPlotlyReady = () => { window.plotlyLoaded = true; console.log('✓ Plotly is now READY for rendering'); };
+        
+        (function loadPlotlySequentially(){
+            const sources = [
+                '/static/vendor/plotly.min.js',
+                'https://cdn.jsdelivr.net/npm/plotly.js-dist@2.26.1/plotly.min.js',
+                'https://cdn.plot.ly/plotly-2.26.1.min.js',
+                'https://cdn.plot.ly/plotly-latest.min.js'
+            ];
+            function tryLoad(i){
+                if(i>=sources.length){
+                    console.warn('All Plotly sources failed to load');
+                    window.onPlotlyReady(); // Signal ready even if failed (use fallback)
+                    return;
+                }
+                const s = document.createElement('script');
+                s.src = sources[i];
+                s.async = false;
+                s.onload = function(){ 
+                    console.log('Loaded Plotly from', sources[i]); 
+                    if(typeof window.Plotly !== 'undefined') {
+                        window.onPlotlyReady();
+                    } else {
+                        console.warn('Plotly loaded but not available, trying next source...');
+                        tryLoad(i+1);
+                    }
+                };
+                s.onerror = function(){ console.warn('Failed to load Plotly from', sources[i]); tryLoad(i+1); };
+                document.head.appendChild(s);
+            }
+            tryLoad(0);
+        })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <!-- <style>
+        /* Full width layout for visualization page */
+        body { margin:0; padding:0; background:#f0f4f8; }
+        .visualize-container { width:100%; padding:20px; box-sizing:border-box; background:#f0f4f8; }
+        /* Smart tip: darker outline/border for more visible box */
+        .tip-box { background:linear-gradient(90deg, #fff8e1 0%, #fff1f0 100%); border-radius:12px; box-shadow:0 6px 18px rgba(38, 50, 56, 0.08); border:1px solid rgba(2,6,23,0.12); padding:16px; margin-bottom:12px; }
+        .chart { width:100%; max-width:100%; margin-bottom:8px; }
+        #charts-wrapper { display:block; width:100%; margin-bottom:0; }
+        .report-section { margin-top:0; padding:18px; background:white; border-radius:10px; box-shadow:0 4px 12px rgba(38, 50, 56, 0.1); border:1px solid #e2e8f0; }
+        .report-section button { padding:10px 14px; }
+        .loading-msg { padding:20px; text-align:center; color:#666; font-size:16px; }
+        .heatmap-row { display:flex; gap:12px; align-items:flex-start; }
+
+        /* When the visualization grid is full-width (week/month), force charts to the same visual width */
+        .visualization-grid.full-width .chart { max-width:920px; margin-left:auto; margin-right:auto; }
+
+        /* Place heatmap explanation in the info column for clarity on larger screens */
+        #heatmap-explain { width:320px; max-width:38%; background:#fff; border-radius:8px; padding:12px; box-shadow:0 4px 10px rgba(2,6,23,0.06); display:block; margin-top:12px; }
+
+        @media (max-width:700px) {
+            .heatmap-row { flex-direction:column; }
+            /* On mobile, explanation stacks below main content */
+            #heatmap-explain { width:100%; max-width:100%; }
+            .visualization-grid.full-width .chart { max-width:100%; }
+        }
+    </style> -->
+<!-- </head>
+<body class="visualize-body" style="background:#f0f4f8;"> -->
+
+<!-- ERROR DISPLAY DIV -->
+<!-- <div id="error-display" style="display:none; background:#ffebee; border:2px solid #f44336; border-radius:8px; margin:10px; padding:15px; color:#c62828; font-weight:bold;">
+    <strong style="display:block; margin-bottom:8px;">⚠️ Error Loading Visualization:</strong>
+    <div id="error-message" style="font-family:monospace; font-size:12px; word-break:break-all;"></div>
+</div> -->
+
+<!-- <div class="visualize-container">
+    <h2 style="font-weight:700; color:#0f172a; margin-top:0;">Visualizations</h2>
+    <div id="viz-status" style="margin-bottom:12px;color:#0f172a;font-weight:600">Initializing visualization...</div> -->
+
+    <!-- <div class="tip-kpi-row" style="display:flex; gap:16px; align-items:flex-start; margin-bottom:18px;">
+        <div class="tip-box" style="flex:1;">
+            <h4 style="margin:0 0 6px 0;">🧠 Smart Energy Tip</h4>
+            <p id="tip-text" style="margin:0; font-size:15px;"></p>
+        </div>
+        <div id="kpi-right" class="kpi-right" style="display:none;"></div>
+    </div> -->
+
+    <!-- <div class="visualization-grid">
+        <div class="chart-column">
+            <div id="charts-wrapper">
+                <div id="lineChart" class="chart"><div class="loading-msg">Loading charts...</div></div>
+
+                <div class="heatmap-row" style="display:flex; gap:12px; align-items:flex-start;">
+                    <div id="heatmapChart" class="chart" style="flex:1;"></div>
+                </div>
+
+                <div id="barChart" class="chart"></div>
+                <div id="pieChart" class="chart"></div>
+            </div>
+        </div>
+
+        <aside class="info-column">
+
+            <div class="info-card" id="info-card">
+                <h3>Forecast Explanation</h3>
+                <p>This chart shows predicted energy usage for upcoming time intervals based on your input values.</p>
+
+                <h4 style="margin-top:12px;">Legend</h4>
+                <ul class="legend-list">
+                    <li><strong>1hr</strong> — Time Step 1 (Next Hour)</li>
+                    <li><strong>2hr</strong> — Time Step 2</li>
+                    <li><strong>3hr</strong> — Time Step 3</li>
+                    <li>... subsequent time steps</li>
+                </ul>
+
+                <!-- Heatmap explanation moved here so it sits under the description box, not merged with the heatmap -->
+                <!-- <div id="heatmap-explain" style="display:none;">
+                    <h4 style="margin:0 0 8px 0;">Heatmap Explanation</h4>
+                    <p style="margin:0; color:#475569; font-size:14px;">This heatmap highlights energy consumption intensity across time intervals. Brighter colors indicate higher predicted usage.</p>
+                </div>
+            </div>
+        </aside>
+    </div> --> -->
+
+    <!-- <div class="report-section" style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:20px;">
+        <div>
+            <h3 style="margin:0 0 6px 0;">Forecast Report</h3>
+            <p style="margin:0; color:#475569;">Download a PDF report of the forecast.</p>
+        </div> -->
+        <!-- <div style="display:flex; gap:10px; align-items:center;">
+            <button id="download-pdf" class="pdf-btn">Get PDF</button>
+            <button id="back-forecast" class="back-btn">Back to Forecast</button>
+        </div>
+    </div>
+</div> --> -->
+
+<!-- <script>
+    // Embedded prediction data from server
+    const PREDICTION = {
+        dates: ["2026-03-01T20:47:23.794302"],
+        predictions: [0.0756],
+        tip: "\ud83c\udf21 AC consumption varies daily with temperature. Using sleep mode and setting 24\u201326\u00b0C can significantly reduce usage."
+    };
+    console.log('PREDICTION object set:', PREDICTION);
+    console.log('Plotly available:', typeof window.Plotly !== 'undefined');
+</script> -->
+<!-- <script src="/static/visualize.js"></script>
+</body>
+</html> -->
